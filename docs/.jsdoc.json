@@ -1,0 +1,37 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [
+      "jsdoc"
+    ]
+  },
+  "source": {
+    "include": [
+      "src",
+      "package.json",
+      "./docs/docs.md"
+    ],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "templates": {
+    "referenceTitle": "Cross Swaps SDK",
+    "disableSort": false,
+    "collapse": true,
+    "default": {
+      "outputSourceFiles": false,
+      "outputSourcePath": false,
+      "layoutFile": "./docs/layout.tmpl"
+    }
+  },
+  "opts": {
+    "destination": "./docs/build",
+    "encoding": "utf8",
+    "private": true,
+    "recurse": true,
+    "template": "node_modules/braintree-jsdoc-template"
+  }
+}
