@@ -1,6 +1,6 @@
 {
   "name": "txproxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -49,6 +49,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-runtime": "^6.26.0",
+    "ripple-lib": "^1.1.2",
     "web3": "^1.0.0-beta.46"
   },
   "babel": {
