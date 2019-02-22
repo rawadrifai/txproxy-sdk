@@ -16,7 +16,7 @@ export class EthereumClient {
   server;
 
   /**
-   * Creates a new instance of Ripple Client.
+   * Creates a new instance of Ethereum Client.
    * @param {string} network testnet | mainnet
    */
   constructor(network) {

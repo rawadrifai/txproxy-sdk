@@ -42,7 +42,7 @@ var axios = require('axios');
  */
 var BitcoinClient = (exports.BitcoinClient = (function() {
   /**
-   * Creates a new instance of Ripple Client.
+   * Creates a new instance of Bitcoin Client.
    * @param {string} network testnet | mainnet
    */
   function BitcoinClient(network) {
@@ -50,8 +50,8 @@ var BitcoinClient = (exports.BitcoinClient = (function() {
 
     if (network) {
       if (network == _networks2.default.TYPES.mainnet)
-        this.server = _networks2.default.RIPPLE.mainnet;
-      else this.server = _networks2.default.RIPPLE.testnet;
+        this.server = _networks2.default.BITCOIN.mainnet;
+      else this.server = _networks2.default.BITCOIN.testnet;
     }
   }
 
@@ -79,10 +79,7 @@ var BitcoinClient = (exports.BitcoinClient = (function() {
                     case 0:
                       _context.next = 2;
                       return axios.get(
-                        this.bitcoinAdapter.blockExplorer +
-                          '/addrs/' +
-                          address +
-                          '/balance'
+                        this.server + '/addrs/' + address + '/balance'
                       );
 
                     case 2:
@@ -127,9 +124,7 @@ var BitcoinClient = (exports.BitcoinClient = (function() {
                   switch ((_context2.prev = _context2.next)) {
                     case 0:
                       _context2.next = 2;
-                      return axios.get(
-                        this.bitcoinAdapter.blockExplorer + '/txs/' + id
-                      );
+                      return axios.get(this.server + id);
 
                     case 2:
                       txData = _context2.sent;
@@ -173,12 +168,9 @@ var BitcoinClient = (exports.BitcoinClient = (function() {
                   switch ((_context3.prev = _context3.next)) {
                     case 0:
                       _context3.next = 2;
-                      return axios.post(
-                        this.bitcoinAdapter.blockExplorer + '/txs/push',
-                        {
-                          tx: tx.toString()
-                        }
-                      );
+                      return axios.post(this.server + 'push', {
+                        tx: tx.toString()
+                      });
 
                     case 2:
                       response = _context3.sent;

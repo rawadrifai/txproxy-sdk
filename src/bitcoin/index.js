@@ -17,14 +17,14 @@ export class BitcoinClient {
   server;
 
   /**
-   * Creates a new instance of Ripple Client.
+   * Creates a new instance of Bitcoin Client.
    * @param {string} network testnet | mainnet
    */
   constructor(network) {
     if (network) {
       if (network == Networks.TYPES.mainnet)
-        this.server = Networks.RIPPLE.mainnet;
-      else this.server = Networks.RIPPLE.testnet;
+        this.server = Networks.BITCOIN.mainnet;
+      else this.server = Networks.BITCOIN.testnet;
     }
   }
 
@@ -35,7 +35,7 @@ export class BitcoinClient {
    */
   async getBalance(address) {
     const result = await axios.get(
-      this.bitcoinAdapter.blockExplorer + '/addrs/' + address + '/balance'
+      this.server + '/addrs/' + address + '/balance'
     );
 
     return result.data.balance;
@@ -48,9 +48,7 @@ export class BitcoinClient {
    * @returns {Object} the transaction details
    */
   async getTx(id) {
-    const txData = await axios.get(
-      this.bitcoinAdapter.blockExplorer + '/txs/' + id
-    );
+    const txData = await axios.get(this.server + id);
 
     return txData.data;
   }
@@ -62,12 +60,9 @@ export class BitcoinClient {
    * @returns {Object} the result of the transaction
    */
   async broadcastTx(tx) {
-    const response = await axios.post(
-      this.bitcoinAdapter.blockExplorer + '/txs/push',
-      {
-        tx: tx.toString()
-      }
-    );
+    const response = await axios.post(this.server + 'push', {
+      tx: tx.toString()
+    });
 
     return response.data.tx.hash;
   }

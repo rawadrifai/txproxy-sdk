@@ -39,7 +39,7 @@ function _interopRequireDefault(obj) {
 
 var EthereumClient = (exports.EthereumClient = (function() {
   /**
-   * Creates a new instance of Ripple Client.
+   * Creates a new instance of Ethereum Client.
    * @param {string} network testnet | mainnet
    */
   function EthereumClient(network) {

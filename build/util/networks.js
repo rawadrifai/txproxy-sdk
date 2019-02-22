@@ -29,8 +29,8 @@ Networks.TYPES = {
   mainnet: 'mainnet'
 };
 Networks.BITCOIN = {
-  testnet: 'https://api.blockcypher.com/v1/btc/test3',
-  mainnet: 'https://blockexplorer.com'
+  testnet: 'https://api.blockcypher.com/v1/btc/test3/txs/',
+  mainnet: 'https://blockexplorer.com/api/tx/'
 };
 Networks.ETHEREUM = {
   testnet: 'https://ropsten.infura.io/L8oEX1CRugs7957zJVDa ',

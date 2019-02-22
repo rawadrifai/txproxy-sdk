@@ -14,8 +14,8 @@ export class Networks {
     mainnet: 'mainnet'
   };
   static BITCOIN = {
-    testnet: 'https://api.blockcypher.com/v1/btc/test3',
-    mainnet: 'https://blockexplorer.com'
+    testnet: 'https://api.blockcypher.com/v1/btc/test3/txs/',
+    mainnet: 'https://blockexplorer.com/api/tx/'
   };
   static ETHEREUM = {
     testnet: 'https://ropsten.infura.io/L8oEX1CRugs7957zJVDa ',
